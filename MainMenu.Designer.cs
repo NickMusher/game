@@ -43,6 +43,7 @@ namespace WindowsFormsApp1
             this.toRightButton.TabIndex = 0;
             this.toRightButton.Text = "▶";
             this.toRightButton.UseVisualStyleBackColor = true;
+            this.toRightButton.Click += new System.EventHandler(this.ToRightButton_Click);
             // 
             // toLeftButton
             // 
@@ -53,6 +54,7 @@ namespace WindowsFormsApp1
             this.toLeftButton.TabIndex = 1;
             this.toLeftButton.Text = "◀";
             this.toLeftButton.UseVisualStyleBackColor = true;
+            this.toLeftButton.Click += new System.EventHandler(this.ToLeftButton_Click);
             // 
             // startButton
             // 
