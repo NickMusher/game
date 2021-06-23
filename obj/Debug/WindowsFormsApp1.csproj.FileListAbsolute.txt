@@ -1,0 +1,12 @@
+C:\Users\mrnik\OneDrive\Рабочий стол\Game\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\Users\mrnik\OneDrive\Рабочий стол\Game\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\Users\mrnik\OneDrive\Рабочий стол\Game\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\Users\mrnik\OneDrive\Рабочий стол\Game\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\Users\mrnik\OneDrive\Рабочий стол\Game\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.MainMenuForm.resources
+C:\Users\mrnik\OneDrive\Рабочий стол\Game\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\Users\mrnik\OneDrive\Рабочий стол\Game\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\Users\mrnik\OneDrive\Рабочий стол\Game\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\Users\mrnik\OneDrive\Рабочий стол\Game\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\Users\mrnik\OneDrive\Рабочий стол\Game\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\Users\mrnik\OneDrive\Рабочий стол\Game\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.GameFieldForm.resources
+C:\Users\mrnik\OneDrive\Рабочий стол\Game\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.SettingsForm.resources

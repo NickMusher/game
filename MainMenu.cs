@@ -23,5 +23,15 @@ namespace WindowsFormsApp1
             gameField.Show();
             Hide();
         }
+
+        private void ToRightButton_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = (Planet.Type++).ToString();
+        }
+
+        private void ToLeftButton_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = (Planet.Type--).ToString();
+        }
     }
 }
