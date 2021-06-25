@@ -15,7 +15,7 @@ namespace WindowsFormsApp1
         }
     }
 
-    class EnemyCard : Card
+    public class EnemyCard : Card
     {
         public Health Health { get; private set; }
         public int Damage { get; private set; }
@@ -36,7 +36,7 @@ namespace WindowsFormsApp1
         }
     }
 
-    class WeaponCard : Card
+    public class WeaponCard : Card
     {
         public Health Durability { get; set; }
         public int Damage { get; private set; }
@@ -52,7 +52,7 @@ namespace WindowsFormsApp1
         }
     }
 
-    class ArmorCard : Card
+    public class ArmorCard : Card
     {
         public Health Durability { get; set; }
         public int Protection { get; private set; }
@@ -77,7 +77,7 @@ namespace WindowsFormsApp1
         }
     }
 
-    class HealCard : Card
+    public class HealCard : Card
     {
         public int Heal { get; private set; }
         public HealCard(string name, int heal) : base(name)

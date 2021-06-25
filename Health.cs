@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    class Health
+    public class Health
     {
         public int Maximum { get; private set; }
 
@@ -32,8 +32,10 @@ namespace WindowsFormsApp1
 
         public Health(int health)
         {
-            Maximum = Actual = health;
+            Maximum = health ;
+            Actual = health;
         }
+        
 
         public void DownOn(int damage)
         {

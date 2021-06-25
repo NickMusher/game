@@ -20,5 +20,17 @@ namespace WindowsFormsApp1
                 type = value;
             }
         }
+        public static List<Card> coloda = new List<Card>();
+        public static void Coloda()
+        {
+
+            coloda.Add(new EnemyCard("vrag", 4, 4));
+            coloda.Add(new WeaponCard("pushka", 4, 4));
+            coloda.Add(new ArmorCard("helm", ArmorCard.Slot.Helmet, 3, 3));
+            coloda.Add(new EnemyCard("vrag1", 1, 1));
+            coloda.Add(new WeaponCard("pushka1", 2, 2));
+            coloda.Add(new ArmorCard("bronya", ArmorCard.Slot.Breastplate, 5, 5));
+        }
+
     }
 }

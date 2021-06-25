@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    class Hero
+    public class Hero
     {
         public Health health = new Health(20);
         private static int Damage(int health)
