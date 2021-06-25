@@ -80,22 +80,38 @@ namespace WindowsFormsApp1
         public bool TryTake(Card card)
         {
             if (card is WeaponCard weapon)
+            #region
                 if (RightHand == null)
                 {
                     RightHand = weapon;
                     return true;
                 }
-                else if (RightHand is WeaponCard anotherWeaponR)
-                    if (weapon.Damage > anotherWeaponR.Damage)
+                else if (RightHand is WeaponCard anotherWeaponR1)
+                    if (weapon.Damage > anotherWeaponR1.Damage)
                         if (LeftHand == null)
                         {
-                            LeftHand = anotherWeaponR;
+                            LeftHand = anotherWeaponR1;
                             RightHand = weapon;
                             return true;
                         }
+                        else if (LeftHand is WeaponCard anotherWeaponL1)
+                            if (anotherWeaponR1.Damage > anotherWeaponL1.Damage)
+                                if (Backpack == null)
+                                {
+                                    Backpack = anotherWeaponL1;
+                                    LeftHand = anotherWeaponR1;
+                                    return true;
+                                }
+                                else return false;
+                            else if (Backpack == null)
+                            {
+                                Backpack = anotherWeaponR1;
+                                return true;
+                            }
+                            else return false;
                         else if (Backpack == null)
                         {
-                            Backpack = anotherWeaponR;
+                            Backpack = anotherWeaponR1;
                             RightHand = weapon;
                             return true;
                         }
@@ -105,17 +121,37 @@ namespace WindowsFormsApp1
                         LeftHand = weapon;
                         return true;
                     }
+                    else if (LeftHand is WeaponCard anotherWeaponL2)
+                        if (weapon.Damage > anotherWeaponL2.Damage)
+                            if (Backpack == null)
+                            {
+                                Backpack = anotherWeaponL2;
+                                LeftHand = weapon;
+                                return true;
+                            }
+                            else return false;
+                        else if (Backpack == null)
+                        {
+                            Backpack = weapon;
+                            return true;
+                        }
+                        else return false;
                     else if (Backpack == null)
                     {
                         Backpack = weapon;
                         return true;
                     }
                     else return false;
-                else if (LeftHand is WeaponCard anotherWeaponL)
-                    if (weapon.Damage > anotherWeaponL.Damage)
+                else if (LeftHand == null)
+                {
+                    LeftHand = weapon;
+                    return true;
+                }
+                else if (LeftHand is WeaponCard anotherWeaponL3)
+                    if (weapon.Damage > anotherWeaponL3.Damage)
                         if (Backpack == null)
                         {
-                            Backpack = anotherWeaponL;
+                            Backpack = anotherWeaponL3;
                             RightHand = weapon;
                             return true;
                         }
@@ -132,6 +168,7 @@ namespace WindowsFormsApp1
                     return true;
                 }
                 else return false;
+            #endregion
 
             if (card is ArmorCard armor)
             {

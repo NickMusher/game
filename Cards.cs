@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    class Card
+    public class Card
     {
         public string Name { get; private set; }
         public Card(string name)
