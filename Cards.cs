@@ -6,16 +6,20 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    abstract class Card
+    class Card
     {
-        public string Name { get; }
+        public string Name { get; private set; }
+        public Card(string name)
+        {
+            Name = name;
+        }
     }
 
     class EnemyCard : Card
     {
         public Health Health { get; private set; }
         public int Damage { get; private set; }
-        public EnemyCard(int health, int damage)
+        public EnemyCard(string name, int health, int damage) : base(name)
         {
             Health = new Health(health);
             Damage = damage;
@@ -36,10 +40,15 @@ namespace WindowsFormsApp1
     {
         public Health Durability { get; set; }
         public int Damage { get; private set; }
-        public WeaponCard(int health, int damage)
+        public WeaponCard(string name, int health, int damage) : base(name)
         {
             Durability = new Health(health);
             Damage = damage;
+        }
+
+        public bool IsBroken()
+        {
+            return Durability.IsDead();
         }
     }
 
@@ -47,15 +56,33 @@ namespace WindowsFormsApp1
     {
         public Health Durability { get; set; }
         public int Protection { get; private set; }
-        public ArmorCard(int durability, int protection)
+        public Slot Type { get; set; }
+        public ArmorCard(string name, Slot type, int durability, int protection) : base(name)
         {
+            Type = type;
             Durability = new Health(durability);
             Protection = protection;
+        }
+
+        public enum Slot
+        {
+            Helmet = 0,
+            Breastplate = 1,
+            Boots = 2
+        }
+
+        public bool IsBroken()
+        {
+            return Durability.IsDead();
         }
     }
 
     class HealCard : Card
     {
-
+        public int Heal { get; private set; }
+        public HealCard(string name, int heal) : base(name)
+        {
+            Heal = heal;
+        }
     }
 }

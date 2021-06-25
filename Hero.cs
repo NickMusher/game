@@ -9,56 +9,180 @@ namespace WindowsFormsApp1
     class Hero
     {
         public Health health = new Health(20);
-        private static int Damage()
+        private static int Damage(int health)
         {
             int damage = 0;
-            if (RightHand.Card is WeaponCard rightWeapon)
+
+            if (health > damage && RightHand is WeaponCard rightWeapon)
             {
                 damage += rightWeapon.Damage;
                 rightWeapon.Durability.DownOn(1);
+                if (rightWeapon.IsBroken())
+                    RightHand = null;
             }
-            if (LeftHand.Card is WeaponCard leftWeapon)
+
+            if (health > damage && LeftHand is WeaponCard leftWeapon)
             {
                 damage += leftWeapon.Damage;
                 leftWeapon.Durability.DownOn(1);
+                if (leftWeapon.IsBroken())
+                    LeftHand = null;
             }
+
             return damage;
         }
 
-        public static Slot RightHand { get; set; }
-        public static Slot LeftHand { get; set; }
-        public static Slot Helmet { get; set; }
-        public static Slot Breastplate { get; set; }
-        public static Slot Boots { get; set; }
-        public static Slot Backpack { get; set; }
+        public static Card RightHand { get; set; }
+        public static Card LeftHand { get; set; }
+        public static ArmorCard Helmet { get; set; }
+        public static ArmorCard Breastplate { get; set; }
+        public static ArmorCard Boots { get; set; }
+        public static Card Backpack { get; set; }
 
         public void Attack(EnemyCard enemy)
         {
-            enemy.Health.DownOn(Damage());
+            enemy.Health.DownOn(Damage(enemy.Health.Actual));
         }
 
         public static int Resisted(int damage)
         {
             int resist = 0;
-            if (Helmet != null && damage > resist && Helmet.Card is ArmorCard helmet && !helmet.Durability.IsDead())
+
+            if (damage > resist && Helmet != null)
             {
-                resist += helmet.Protection;
-                helmet.Durability.DownOn(1);
+                resist += Helmet.Protection;
+                Helmet.Durability.DownOn(1);
+                if (Helmet.IsBroken())
+                    Helmet = null;
             }
-            if (Breastplate != null && damage > resist && Breastplate.Card is ArmorCard breastplate && !breastplate.Durability.IsDead()) 
+
+            if (damage > resist && Breastplate != null)
             {
-                resist += breastplate.Protection;
-                breastplate.Durability.DownOn(1);
+                resist += Breastplate.Protection;
+                Breastplate.Durability.DownOn(1);
+                if (Breastplate.IsBroken())
+                    Breastplate = null;
             }
-            if (Boots != null && damage > resist && Boots.Card is ArmorCard boots && !boots.Durability.IsDead())
+
+            if (damage > resist && Boots != null)
             {
-                resist += boots.Protection;
-                boots.Durability.DownOn(1);
+                resist += Boots.Protection;
+                Boots.Durability.DownOn(1);
+                if (Boots.IsBroken())
+                    Boots = null;
             }
 
             if (damage - resist < 0)
                 return 0;
             return damage - resist;
+        }
+
+        public bool TryTake(Card card)
+        {
+            if (card is WeaponCard weapon)
+                if (RightHand == null)
+                {
+                    RightHand = weapon;
+                    return true;
+                }
+                else if (RightHand is WeaponCard anotherWeaponR)
+                    if (weapon.Damage > anotherWeaponR.Damage)
+                        if (LeftHand == null)
+                        {
+                            LeftHand = anotherWeaponR;
+                            RightHand = weapon;
+                            return true;
+                        }
+                        else if (Backpack == null)
+                        {
+                            Backpack = anotherWeaponR;
+                            RightHand = weapon;
+                            return true;
+                        }
+                        else return false;
+                    else if (LeftHand == null)
+                    {
+                        LeftHand = weapon;
+                        return true;
+                    }
+                    else if (Backpack == null)
+                    {
+                        Backpack = weapon;
+                        return true;
+                    }
+                    else return false;
+                else if (LeftHand is WeaponCard anotherWeaponL)
+                    if (weapon.Damage > anotherWeaponL.Damage)
+                        if (Backpack == null)
+                        {
+                            Backpack = anotherWeaponL;
+                            RightHand = weapon;
+                            return true;
+                        }
+                        else return false;
+                    else if (Backpack == null)
+                    {
+                        Backpack = weapon;
+                        return true;
+                    }
+                    else return false;
+                else if (Backpack == null)
+                {
+                    Backpack = weapon;
+                    return true;
+                }
+                else return false;
+
+            if (card is ArmorCard armor)
+            {
+                if (armor.Type == ArmorCard.Slot.Helmet)
+                    if (Helmet == null)
+                    {
+                        Helmet = armor;
+                        return true;
+                    }
+                    else if (Backpack == null)
+                    {
+                        Backpack = armor;
+                        return true;
+                    }
+                    else return false; 
+
+                if (armor.Type == ArmorCard.Slot.Breastplate)
+                    if (Breastplate == null)
+                    {
+                        Breastplate = armor;
+                        return true;
+                    }
+                    else if (Backpack == null)
+                    {
+                        Backpack = armor;
+                        return true;
+                    }
+                    else return false;
+
+                if (armor.Type == ArmorCard.Slot.Boots)
+                    if (Boots == null)
+                    {
+                        Boots = armor;
+                        return true;
+                    }
+                    else if (Backpack == null)
+                    {
+                        Backpack = armor;
+                        return true;
+                    }
+                    else return false;
+            }
+
+            if (card is HealCard heal)
+                if (Backpack == null)
+                {
+                    Backpack = heal;
+                    return true;
+                }
+                else return false;
+            return false;
         }
     }
 }
