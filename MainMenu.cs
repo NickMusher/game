@@ -26,12 +26,10 @@ namespace WindowsFormsApp1
 
         private void ToRightButton_Click(object sender, EventArgs e)
         {
-            textBox1.Text = (Planet.Type++).ToString();
         }
 
         private void ToLeftButton_Click(object sender, EventArgs e)
         {
-            textBox1.Text = (Planet.Type--).ToString();
         }
     }
 }

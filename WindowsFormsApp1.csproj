@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Cards.cs" />
     <Compile Include="Health.cs" />
+    <Compile Include="Hero.cs" />
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +70,7 @@
     <Compile Include="Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Slot.cs" />
     <EmbeddedResource Include="GameField.resx">
       <DependentUpon>GameField.cs</DependentUpon>
     </EmbeddedResource>
