@@ -40,9 +40,9 @@ namespace WindowsFormsApp1
             this.helmetButton = new System.Windows.Forms.Button();
             this.leftHandButton = new System.Windows.Forms.Button();
             this.rightHandButton = new System.Windows.Forms.Button();
-            this.button13 = new System.Windows.Forms.Button();
+            this.backpackButton = new System.Windows.Forms.Button();
             this.bootsButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.health = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // srttingButton
@@ -64,7 +64,7 @@ namespace WindowsFormsApp1
             this.button1.TabIndex = 1;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button2
             // 
@@ -74,7 +74,7 @@ namespace WindowsFormsApp1
             this.button2.TabIndex = 2;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button3
             // 
@@ -84,7 +84,7 @@ namespace WindowsFormsApp1
             this.button3.TabIndex = 3;
             this.button3.Text = "button3";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // button4
             // 
@@ -94,7 +94,7 @@ namespace WindowsFormsApp1
             this.button4.TabIndex = 4;
             this.button4.Text = "button4";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.Button4_Click);
             // 
             // button5
             // 
@@ -104,7 +104,7 @@ namespace WindowsFormsApp1
             this.button5.TabIndex = 5;
             this.button5.Text = "button5";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // button6
             // 
@@ -114,7 +114,7 @@ namespace WindowsFormsApp1
             this.button6.TabIndex = 6;
             this.button6.Text = "button6";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
             // breastplateButton
             // 
@@ -124,7 +124,7 @@ namespace WindowsFormsApp1
             this.breastplateButton.TabIndex = 7;
             this.breastplateButton.Text = "breastplateButton";
             this.breastplateButton.UseVisualStyleBackColor = true;
-            this.breastplateButton.Click += new System.EventHandler(this.breastplateButton_Click);
+            this.breastplateButton.Click += new System.EventHandler(this.BreastplateButton_Click);
             // 
             // helmetButton
             // 
@@ -134,7 +134,7 @@ namespace WindowsFormsApp1
             this.helmetButton.TabIndex = 8;
             this.helmetButton.Text = "helmetButton";
             this.helmetButton.UseVisualStyleBackColor = true;
-            this.helmetButton.Click += new System.EventHandler(this.helmetButton_Click);
+            this.helmetButton.Click += new System.EventHandler(this.HelmetButton_Click);
             // 
             // leftHandButton
             // 
@@ -144,7 +144,7 @@ namespace WindowsFormsApp1
             this.leftHandButton.TabIndex = 9;
             this.leftHandButton.Text = "leftHandButton";
             this.leftHandButton.UseVisualStyleBackColor = true;
-            this.leftHandButton.Click += new System.EventHandler(this.leftHandButton_Click);
+            this.leftHandButton.Click += new System.EventHandler(this.LeftHandButton_Click);
             // 
             // rightHandButton
             // 
@@ -154,17 +154,17 @@ namespace WindowsFormsApp1
             this.rightHandButton.TabIndex = 10;
             this.rightHandButton.Text = "rightHandButton";
             this.rightHandButton.UseVisualStyleBackColor = true;
-            this.rightHandButton.Click += new System.EventHandler(this.rightHandButton_Click);
+            this.rightHandButton.Click += new System.EventHandler(this.RightHandButton_Click);
             // 
-            // button13
+            // backpackButton
             // 
-            this.button13.Location = new System.Drawing.Point(70, 253);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(100, 150);
-            this.button13.TabIndex = 12;
-            this.button13.Text = "backpackButton";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.backpackButton.Location = new System.Drawing.Point(70, 253);
+            this.backpackButton.Name = "backpackButton";
+            this.backpackButton.Size = new System.Drawing.Size(100, 150);
+            this.backpackButton.TabIndex = 12;
+            this.backpackButton.Text = "backpackButton";
+            this.backpackButton.UseVisualStyleBackColor = true;
+            this.backpackButton.Click += new System.EventHandler(this.BbackpackButton_Click);
             // 
             // bootsButton
             // 
@@ -174,23 +174,23 @@ namespace WindowsFormsApp1
             this.bootsButton.TabIndex = 14;
             this.bootsButton.Text = "bootsButton";
             this.bootsButton.UseVisualStyleBackColor = true;
-            this.bootsButton.Click += new System.EventHandler(this.bootsButton_Click);
+            this.bootsButton.Click += new System.EventHandler(this.BootsButton_Click);
             // 
-            // textBox1
+            // health
             // 
-            this.textBox1.Location = new System.Drawing.Point(22, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(104, 20);
-            this.textBox1.TabIndex = 15;
+            this.health.Location = new System.Drawing.Point(22, 12);
+            this.health.Name = "health";
+            this.health.Size = new System.Drawing.Size(104, 20);
+            this.health.TabIndex = 15;
             // 
             // GameFieldForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(984, 661);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.health);
             this.Controls.Add(this.bootsButton);
-            this.Controls.Add(this.button13);
+            this.Controls.Add(this.backpackButton);
             this.Controls.Add(this.rightHandButton);
             this.Controls.Add(this.leftHandButton);
             this.Controls.Add(this.helmetButton);
@@ -223,8 +223,8 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button helmetButton;
         private System.Windows.Forms.Button leftHandButton;
         private System.Windows.Forms.Button rightHandButton;
-        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Button backpackButton;
         private System.Windows.Forms.Button bootsButton;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox health;
     }
 }

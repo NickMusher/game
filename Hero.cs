@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    public class Hero
+    public static class Hero
     {
-        public Health health = new Health(20);
+        public static Health health = new Health(20);
         private static int Damage(int health)
         {
             int damage = 0;
@@ -39,7 +39,7 @@ namespace WindowsFormsApp1
         public static ArmorCard Boots { get; set; }
         public static Card Backpack { get; set; }
 
-        public void Attack(EnemyCard enemy)
+        public static void Attack(EnemyCard enemy)
         {
             enemy.Health.DownOn(Damage(enemy.Health.Actual));
         }
@@ -77,7 +77,7 @@ namespace WindowsFormsApp1
             return damage - resist;
         }
 
-        public bool TryTake(Card card)
+        public static bool TryTake(Card card)
         {
             if (card is WeaponCard weapon)
             #region

@@ -13,6 +13,11 @@ namespace WindowsFormsApp1
         {
             Name = name;
         }
+
+        public string Characteristics()
+        {
+            return "";
+        }
     }
 
     public class EnemyCard : Card
@@ -30,9 +35,14 @@ namespace WindowsFormsApp1
             return Health.IsDead();
         }
 
-        public void Attak(Hero hero)
+        public void Attak()
         {
-            hero.health.DownOn(Hero.Resisted(Damage));
+            Hero.health.DownOn(Hero.Resisted(Damage));
+        }
+
+        public new string Characteristics()
+        {
+            return Health.ToString() + "    " + Damage.ToString();
         }
     }
 
@@ -40,15 +50,20 @@ namespace WindowsFormsApp1
     {
         public Health Durability { get; set; }
         public int Damage { get; private set; }
-        public WeaponCard(string name, int health, int damage) : base(name)
+        public WeaponCard(string name, int durability, int damage) : base(name)
         {
-            Durability = new Health(health);
+            Durability = new Health(durability);
             Damage = damage;
         }
 
         public bool IsBroken()
         {
             return Durability.IsDead();
+        }
+
+        public new string Characteristics()
+        {
+            return Durability.ToString() + "    " + Damage.ToString();
         }
     }
 
@@ -75,6 +90,11 @@ namespace WindowsFormsApp1
         {
             return Durability.IsDead();
         }
+
+        public new string Characteristics()
+        {
+            return Durability.ToString() + "    " + Protection.ToString();
+        }
     }
 
     public class HealCard : Card
@@ -83,6 +103,11 @@ namespace WindowsFormsApp1
         public HealCard(string name, int heal) : base(name)
         {
             Heal = heal;
+        }
+
+        public new string Characteristics()
+        {
+            return Heal.ToString();
         }
     }
 }

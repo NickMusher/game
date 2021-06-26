@@ -12,384 +12,273 @@ namespace WindowsFormsApp1
 {
     public partial class GameFieldForm : Form
     {
-        public Hero ne = new Hero();
+        public static List<Card> deck = Planet.GetDeck();
+
         public GameFieldForm()
         {
             InitializeComponent();
-            Planet.Coloda();
-            List<Card> cards = Planet.coloda;
-            Zapol(cards);
-            textBox1.Text = ne.health.Actual.ToString();
+            Table.Distribution(ref deck);
+            health.Text = Hero.health.Actual.ToString();
         }
-        
-        
-        public void Zapol(List<Card> cards)
-        {
-            if (Table.Slot1 == null)
-            {
-                Table.Slot1 = cards[cards.Count - 1];
-                cards.RemoveAt(cards.Count - 1);
-                button1.Text = Table.Slot1.Name;
-            }
-            if (Table.Slot2 == null)
-            {
-                Table.Slot2 = cards[cards.Count - 1];
-                cards.RemoveAt(cards.Count - 1);
-                button2.Text = Table.Slot2.Name;
-            }
-            if (Table.Slot3 == null)
-            {
-                Table.Slot3 = cards[cards.Count - 1];
-                cards.RemoveAt(cards.Count - 1);
-                button3.Text = Table.Slot3.Name;
-            }
-            if (Table.Slot4 == null)
-            {
-                Table.Slot4 = cards[cards.Count - 1];
-                cards.RemoveAt(cards.Count - 1);
-                button4.Text = Table.Slot4.Name;
-            }
-            if (Table.Slot5 == null)
-            {
-                Table.Slot5 = cards[cards.Count - 1];
-                cards.RemoveAt(cards.Count - 1);
-                button5.Text = Table.Slot5.Name;
-            }
-            if (Table.Slot6 == null)
-            {
-                Table.Slot6 = cards[cards.Count - 1];
-                cards.RemoveAt(cards.Count - 1);
-                button6.Text = Table.Slot6.Name;
-            }
 
-        }
         private void SettingsButton_Click(object sender, EventArgs e)
         {
             var settings = new SettingsForm { Owner = this };
             settings.Show();
         }
 
-        private void helmetButton_Click(object sender, EventArgs e)
+        private void HelmetButton_Click(object sender, EventArgs e)
         {
             Hero.Helmet = null;
         }
 
-        private void breastplateButton_Click(object sender, EventArgs e)
+        private void BreastplateButton_Click(object sender, EventArgs e)
         {
             Hero.Breastplate = null;
         }
 
-        private void bootsButton_Click(object sender, EventArgs e)
+        private void BootsButton_Click(object sender, EventArgs e)
         {
             Hero.Boots = null;
 
         }
 
-        private void leftHandButton_Click(object sender, EventArgs e)
+        private void LeftHandButton_Click(object sender, EventArgs e)
         {
-            if (Hero.LeftHand is WeaponCard leftWeapon)
+            if (Hero.LeftHand is WeaponCard)
                 Hero.LeftHand = null;
             else if (Hero.LeftHand is HealCard heal)
             {
-                //heal
+                Hero.health.UpOn(heal.Heal);
+                Hero.LeftHand = null;
             }
         }
 
-        private void rightHandButton_Click(object sender, EventArgs e)
+        private void RightHandButton_Click(object sender, EventArgs e)
         {
-            if (Hero.RightHand is WeaponCard rightWeapon)
+            if (Hero.RightHand is WeaponCard)
                 Hero.RightHand = null;
             else if (Hero.RightHand is HealCard heal)
             {
-                //heal
+                Hero.health.UpOn(heal.Heal);
+                Hero.RightHand = null;
             }
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        private void BbackpackButton_Click(object sender, EventArgs e)
         {
+            if (Hero.Backpack is ArmorCard armor)
+                switch ((int)armor.Type)
+                { 
+                    case 0: if (Hero.Helmet == null) Hero.Helmet = armor; break;
+                    case 1: if (Hero.Breastplate == null) Hero.Breastplate = armor; break;
+                    case 2: if (Hero.Boots == null) Hero.Boots = armor; break;
+                }
 
+            if (Hero.Backpack is WeaponCard weapon)
+                Hero.TryTake(weapon);
+
+            if (Hero.Backpack is HealCard heal)
+                if (Hero.RightHand == null) Hero.RightHand = heal;
+                else if (Hero.LeftHand == null) Hero.LeftHand = heal;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void FightWith(EnemyCard enemy)
         {
-            if (TryTake1(Table.Slot1))
-            {
-                Table.Slot1 = null;
-                button1.Text = "пусто";
-            }
+            enemy.Attak();
+            Hero.Attack(enemy);
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
             if (Table.Slot1 is EnemyCard enemy)
             {
-                enemy.Attak(ne);
-                ne.Attack(enemy);
+                FightWith(enemy);
+            }
+            else if(Hero.TryTake(Table.Slot1))
+            {
+                Table.RemoveSlot1();
+            }
+            Rendering();
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            if (Table.Slot2 is EnemyCard enemy)
+            {
+                FightWith(enemy);
+            }
+            else if (Hero.TryTake(Table.Slot2))
+            {
+                Table.RemoveSlot2();
+            }
+            Rendering();
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            if (Table.Slot3 is EnemyCard enemy)
+            {
+                FightWith(enemy);
+            }
+            else if (Hero.TryTake(Table.Slot3))
+            {
+                Table.RemoveSlot3();
+            }
+            Rendering();
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            if (Table.Slot4 is EnemyCard enemy)
+            {
+                FightWith(enemy);
+            }
+            else if (Hero.TryTake(Table.Slot4))
+            {
+                Table.RemoveSlot4();
             }
             Rendering();
 
-
-
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button5_Click(object sender, EventArgs e)
         {
-            if (TryTake1(Table.Slot2))
+            if (Table.Slot5 is EnemyCard enemy)
             {
-                Table.Slot2 = null;
-                button2.Text = "пусто";
+                FightWith(enemy);
             }
+            else if (Hero.TryTake(Table.Slot5))
+            {
+                Table.RemoveSlot5();
+            }
+            Rendering();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button6_Click(object sender, EventArgs e)
         {
-            if (TryTake1(Table.Slot3))
+            if (Table.Slot6 is EnemyCard enemy)
             {
-                Table.Slot3 = null;
-                button3.Text = "пусто";
+                FightWith(enemy);
             }
-            //if (Table.Slot3 is ArmorCard arm)
-            //{
-            //    if (arm.Type == ArmorCard.Slot.Helmet)
-            //    {
-            //        Hero.Helmet = arm;
-            //        helmetButton.Text = arm.Name;
-            //    }
-            //    if (arm.Type == ArmorCard.Slot.Breastplate)
-            //    {
-            //        Hero.Breastplate = arm;
-            //        breastplateButton.Text = arm.Name;
-            //    }
-            //    if (arm.Type == ArmorCard.Slot.Boots)
-            //    {
-            //        Hero.Boots = arm;
-            //        bootsButton.Text = arm.Name;
-            //    }
-            //}
+            else if (Hero.TryTake(Table.Slot6))
+            {
+                Table.RemoveSlot6();
+            }
+            Rendering();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            if (TryTake1(Table.Slot4))
-            {
-                Table.Slot4 = null;
-                button4.Text = "пусто";
-            }
-
-        }
-
-        private void button5_Click(object sender, EventArgs e)
-        {
-            if (TryTake1(Table.Slot5))
-            {
-                Table.Slot5 = null;
-                button5.Text = "пусто";
-            }
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            if (TryTake1(Table.Slot6))
-            {
-                Table.Slot6 = null;
-                button6.Text = "пусто";
-            }
-        }
         public void Rendering()
         {
-            textBox1.Text = ne.health.Actual.ToString();
-            if (Hero.Helmet!=null)
-            {
-                helmetButton.Text=Hero.Helmet.Name;
-            }
-            if (Hero.Backpack != null)
-            {
+            health.Text = Hero.health.Actual.ToString();
 
-            }
-            if (Hero.RightHand != null)
+            if (Hero.Helmet == null)
             {
-
+                helmetButton.Text = null;
             }
+            else
+            {
+                helmetButton.Text = Hero.Helmet.Characteristics();
+            }
+
+            if (Hero.Breastplate == null)
+            {
+                breastplateButton.Text = null;
+            }
+            else
+            {
+                breastplateButton.Text = Hero.Breastplate.Characteristics();
+            }
+
+            if (Hero.Boots == null)
+            {
+                bootsButton.Text = null;
+            }
+            else
+            {
+                bootsButton.Text = Hero.Boots.Characteristics();
+            }
+
+            if (Hero.Backpack == null)
+            {
+                backpackButton.Text = null;
+            }
+            else
+            {
+                backpackButton.Text = Hero.Backpack.Characteristics();
+            }
+
+            if (Hero.RightHand == null)
+            {
+                rightHandButton.Text = null;
+            }
+            else
+            {
+                rightHandButton.Text = Hero.RightHand.Characteristics();
+            }
+
             if (Hero.LeftHand != null)
             {
-
+                leftHandButton.Text = null;
             }
-            if (Hero.Breastplate != null)
+            else
             {
-
+                leftHandButton.Text = Hero.LeftHand.Characteristics();
             }
-            if (Hero.Boots!= null)
+
+            if (Table.Slot1 == null)
             {
-
+                button1.Text = null;
             }
-            if (Table.Slot1 != null)
+            else
             {
-
+                button1.Text = Table.Slot1.Characteristics();
             }
-            if (Table.Slot2 != null)
+
+            if (Table.Slot2 == null)
             {
-
+                button2.Text = null;
             }
-            if (Table.Slot3 != null)
+            else
             {
-
+                button2.Text = Table.Slot2.Characteristics();
             }
-            if (Table.Slot4 != null)
+
+            if (Table.Slot3 == null)
             {
-
+                button3.Text = null;
             }
-            if (Table.Slot5 != null)
+            else
             {
-
+                button3.Text = Table.Slot3.Characteristics();
             }
-            if (Table.Slot6 != null)
+
+            if (Table.Slot4 == null)
             {
-
+                button4.Text = null;
             }
-
-        }
-        public bool TryTake1(Card card)
-        {
-            if (card is WeaponCard weapon)
-                #region
-                if (Hero.RightHand == null)
-                {
-                    Hero.RightHand = weapon;
-                    rightHandButton.Text = ""+weapon.Name+ "\r\n"+weapon.Durability.Actual.ToString()+"   "+weapon.Damage.ToString()+"";
-                    return true;
-                }
-                else if (Hero.RightHand is WeaponCard anotherWeaponR1)
-                    if (weapon.Damage > anotherWeaponR1.Damage)
-                        if (Hero.LeftHand == null)
-                        {
-                            Hero.LeftHand = anotherWeaponR1;
-                            leftHandButton.Text = anotherWeaponR1.Name;
-                            Hero.RightHand = weapon;
-                            rightHandButton.Text = weapon.Name;
-                            return true;
-                        }
-                        else if (Hero.LeftHand is WeaponCard anotherWeaponL1)
-                            if (anotherWeaponR1.Damage > anotherWeaponL1.Damage)
-                                if (Hero.Backpack == null)
-                                {
-                                    Hero.Backpack = anotherWeaponL1;
-                                    Hero.LeftHand = anotherWeaponR1;
-                                    return true;
-                                }
-                                else return false;
-                            else if (Hero.Backpack == null)
-                            {
-                                Hero.Backpack = anotherWeaponR1;
-                                return true;
-                            }
-                            else return false;
-                        else if (Hero.Backpack == null)
-                        {
-                            Hero.Backpack = anotherWeaponR1;
-                            Hero.RightHand = weapon;
-                            return true;
-                        }
-                        else return false;
-                    else if (Hero.LeftHand == null)
-                    {
-                        Hero.LeftHand = weapon;
-                        return true;
-                    }
-                    else if (Hero.LeftHand is WeaponCard anotherWeaponL2)
-                        if (weapon.Damage > anotherWeaponL2.Damage)
-                            if (Hero.Backpack == null)
-                            {
-                                Hero.Backpack = anotherWeaponL2;
-                                Hero.LeftHand = weapon;
-                                return true;
-                            }
-                            else return false;
-                        else if (Hero.Backpack == null)
-                        {
-                            Hero.Backpack = weapon;
-                            return true;
-                        }
-                        else return false;
-                    else if (Hero.Backpack == null)
-                    {
-                        Hero.Backpack = weapon;
-                        return true;
-                    }
-                    else return false;
-                else if (Hero.LeftHand == null)
-                {
-                    Hero.LeftHand = weapon;
-                    return true;
-                }
-                else if (Hero.LeftHand is WeaponCard anotherWeaponL3)
-                    if (weapon.Damage > anotherWeaponL3.Damage)
-                        if (Hero.Backpack == null)
-                        {
-                            Hero.Backpack = anotherWeaponL3;
-                            Hero.RightHand = weapon;
-                            return true;
-                        }
-                        else return false;
-                    else if (Hero.Backpack == null)
-                    {
-                        Hero.Backpack = weapon;
-                        return true;
-                    }
-                    else return false;
-                else if (Hero.Backpack == null)
-                {
-                    Hero.Backpack = weapon;
-                    return true;
-                }
-                else return false;
-            #endregion
-
-            if (card is ArmorCard armor)
+            else
             {
-                if (armor.Type == ArmorCard.Slot.Helmet)
-                    if (Hero.Helmet == null)
-                    {
-                        Hero.Helmet = armor;
-                        return true;
-                    }
-                    else if (Hero.Backpack == null)
-                    {
-                        Hero.Backpack = armor;
-                        return true;
-                    }
-                    else return false;
-
-                if (armor.Type == ArmorCard.Slot.Breastplate)
-                    if (Hero.Breastplate == null)
-                    {
-                        Hero.Breastplate = armor;
-                        return true;
-                    }
-                    else if (Hero.Backpack == null)
-                    {
-                        Hero.Backpack = armor;
-                        return true;
-                    }
-                    else return false;
-
-                if (armor.Type == ArmorCard.Slot.Boots)
-                    if (Hero.Boots == null)
-                    {
-                        Hero.Boots = armor;
-                        return true;
-                    }
-                    else if (Hero.Backpack == null)
-                    {
-                        Hero.Backpack = armor;
-                        return true;
-                    }
-                    else return false;
+                button4.Text = Table.Slot4.Characteristics();
             }
 
-            if (card is HealCard heal)
-                if (Hero.Backpack == null)
-                {
-                    Hero.Backpack = heal;
-                    return true;
-                }
-                else return false;
-            return false;
+            if (Table.Slot5 == null)
+            {
+                button5.Text = null;
+            }
+            else
+            {
+                button5.Text = Table.Slot5.Characteristics();
+            }
+
+            if (Table.Slot6 == null)
+            {
+                button6.Text = null;
+            }
+            else
+            {
+                button6.Text = Table.Slot6.Characteristics();
+            }
         }
     }
 }
