@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsApp1
 {
-    public class Card
+    public abstract class Card
     {
         public string Name { get; private set; }
         public Card(string name)
@@ -14,9 +14,9 @@ namespace WindowsFormsApp1
             Name = name;
         }
 
-        public string Characteristics()
+        public abstract string Characteristics
         {
-            return "";
+            get;
         }
     }
 
@@ -40,9 +40,12 @@ namespace WindowsFormsApp1
             Hero.health.DownOn(Hero.Resisted(Damage));
         }
 
-        public new string Characteristics()
+        public override string Characteristics
         {
-            return Health.ToString() + "    " + Damage.ToString();
+            get
+            {
+                return Name + "\n\n\n\n\n\n\n\n" + Health.Actual.ToString() + "    " + Damage.ToString();
+            }
         }
     }
 
@@ -61,9 +64,12 @@ namespace WindowsFormsApp1
             return Durability.IsDead();
         }
 
-        public new string Characteristics()
+        public override string Characteristics
         {
-            return Durability.ToString() + "    " + Damage.ToString();
+            get
+            {
+                return Name + "\n\n\n\n\n\n\n\n" + Durability.Actual.ToString() + "    " + Damage.ToString();
+            }
         }
     }
 
@@ -91,9 +97,12 @@ namespace WindowsFormsApp1
             return Durability.IsDead();
         }
 
-        public new string Characteristics()
+        public override string Characteristics
         {
-            return Durability.ToString() + "    " + Protection.ToString();
+            get
+            {
+                return Name + "\n\n\n\n\n\n\n\n" + Durability.Actual.ToString() + "    " + Protection.ToString();
+            }
         }
     }
 
@@ -105,9 +114,12 @@ namespace WindowsFormsApp1
             Heal = heal;
         }
 
-        public new string Characteristics()
+        public override string Characteristics
         {
-            return Heal.ToString();
+            get
+            {
+                return Name + "\n\n\n\n\n\n\n\n" + Heal.ToString();
+            }
         }
     }
 }

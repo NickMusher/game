@@ -221,5 +221,14 @@ namespace WindowsFormsApp1
                 else return false;
             return false;
         }
+        public static void Reset()
+        {
+            RightHand = null;
+            LeftHand = null;
+            Helmet = null;
+            Breastplate = null;
+            Boots = null;
+            Backpack = null;
+        }
     }
 }

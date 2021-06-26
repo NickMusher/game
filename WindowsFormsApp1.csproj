@@ -85,6 +85,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Settings.resx">
       <DependentUpon>Settings.cs</DependentUpon>
@@ -101,6 +102,63 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Backpack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BootsActive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BootsBase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BootsEmpty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BreastplateActive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BreastplateBase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BreastplateEmty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Enemy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HealActive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HealBase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HelmetActive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HelmetBase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\HelmetEmpty.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LeftHand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RightHand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WeaponActive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WeaponBase.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Backpack %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Emty.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

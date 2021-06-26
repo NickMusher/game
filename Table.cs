@@ -12,7 +12,7 @@ namespace WindowsFormsApp1
         public static Card Slot1
         {
             get { return slot1; }
-            private set
+            set
             {
                 slot1 = value;
                 cardValue++;
@@ -28,7 +28,7 @@ namespace WindowsFormsApp1
         public static Card Slot2
         {
             get { return slot2; }
-            private set
+            set
             {
                 slot2 = value;
                 cardValue++;
@@ -44,7 +44,7 @@ namespace WindowsFormsApp1
         public static Card Slot3
         {
             get { return slot3; }
-            private set
+            set
             {
                 slot3 = value;
                 cardValue++;
@@ -60,7 +60,7 @@ namespace WindowsFormsApp1
         public static Card Slot4
         {
             get { return slot4; }
-            private set
+            set
             {
                 slot4 = value;
                 cardValue++;
@@ -109,42 +109,55 @@ namespace WindowsFormsApp1
 
         public static void Distribution(ref List<Card> deck)
         {
-            if (Slot1 == null)
+            if (deck.Count > 0)
             {
-                int index = random.Next(0, deck.Count);
-                Slot1 = deck[index];
-                deck.RemoveAt(index);
+                if (Slot1 == null)
+                {
+                    int index = random.Next(0, deck.Count);
+                    Slot1 = deck[index];
+                    deck.RemoveAt(index);
+                }
+                if (Slot2 == null)
+                {
+                    int index = random.Next(0, deck.Count);
+                    Slot2 = deck[index];
+                    deck.RemoveAt(index);
+                }
+                if (Slot3 == null)
+                {
+                    int index = random.Next(0, deck.Count);
+                    Slot3 = deck[index];
+                    deck.RemoveAt(index);
+                }
+                if (Slot4 == null)
+                {
+                    int index = random.Next(0, deck.Count);
+                    Slot4 = deck[index];
+                    deck.RemoveAt(index);
+                }
+                if (Slot5 == null)
+                {
+                    int index = random.Next(0, deck.Count);
+                    Slot5 = deck[index];
+                    deck.RemoveAt(index);
+                }
+                if (Slot6 == null)
+                {
+                    int index = random.Next(0, deck.Count);
+                    Slot6 = deck[index];
+                    deck.RemoveAt(index);
+                }
             }
-            if (Slot2 == null)
-            {
-                int index = random.Next(0, deck.Count);
-                Slot2 = deck[index];
-                deck.RemoveAt(index);
-            }
-            if (Slot3 == null)
-            {
-                int index = random.Next(0, deck.Count);
-                Slot3 = deck[index];
-                deck.RemoveAt(index);
-            }
-            if (Slot4 == null)
-            {
-                int index = random.Next(0, deck.Count);
-                Slot4 = deck[index];
-                deck.RemoveAt(index);
-            }
-            if (Slot5 == null)
-            {
-                int index = random.Next(0, deck.Count);
-                Slot5 = deck[index];
-                deck.RemoveAt(index);
-            }
-            if (Slot6 == null)
-            {
-                int index = random.Next(0, deck.Count);
-                Slot6 = deck[index];
-                deck.RemoveAt(index);
-            }
+        }
+        public static void Reset()
+        {
+            Slot1 = null;
+            Slot2 = null;
+            Slot3 = null;
+            Slot4 = null;
+            Slot5 = null;
+            Slot6 = null;
+            cardValue = 0;
         }
     }
 }

@@ -8,13 +8,13 @@ namespace WindowsFormsApp1
 {
     public class Health
     {
-        public int Maximum { get; private set; }
+        public int Maximum { get; set; }
 
         private int actual;
         public int Actual
         {
             get { return actual; }
-            private set
+            set
             {
                 if (value <= 0)
                 {

@@ -19,6 +19,10 @@ namespace WindowsFormsApp1
 
         private void StartButton_Click(object sender, EventArgs e)
         {
+            Hero.health.Maximum = 20;
+            Hero.health.Actual = 20;
+            Hero.Reset();
+            Table.Reset();
             var gameField = new GameFieldForm();
             gameField.Show();
             Hide();

@@ -29,8 +29,6 @@ namespace WindowsFormsApp1
                 {
                     new EnemyCard("Навозник", 3, 2),
                     new EnemyCard("Навозник", 3, 2),
-                    new EnemyCard("Навозник", 3, 2),
-                    new EnemyCard("Рогач", 4, 5),
                     new EnemyCard("Рогач", 4, 5),
                     new EnemyCard("Гипнобабочка", 5, 5),
                     new EnemyCard("Гипнобабочка", 5, 5),

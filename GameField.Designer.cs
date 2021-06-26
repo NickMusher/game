@@ -36,13 +36,13 @@ namespace WindowsFormsApp1
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.breastplateButton = new System.Windows.Forms.Button();
-            this.helmetButton = new System.Windows.Forms.Button();
-            this.leftHandButton = new System.Windows.Forms.Button();
-            this.rightHandButton = new System.Windows.Forms.Button();
-            this.backpackButton = new System.Windows.Forms.Button();
-            this.bootsButton = new System.Windows.Forms.Button();
             this.health = new System.Windows.Forms.TextBox();
+            this.bootsButton = new System.Windows.Forms.Button();
+            this.backpackButton = new System.Windows.Forms.Button();
+            this.rightHandButton = new System.Windows.Forms.Button();
+            this.leftHandButton = new System.Windows.Forms.Button();
+            this.helmetButton = new System.Windows.Forms.Button();
+            this.breastplateButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // srttingButton
@@ -58,6 +58,8 @@ namespace WindowsFormsApp1
             // 
             // button1
             // 
+            this.button1.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.Emty;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button1.Location = new System.Drawing.Point(545, 171);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 150);
@@ -68,6 +70,7 @@ namespace WindowsFormsApp1
             // 
             // button2
             // 
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button2.Location = new System.Drawing.Point(673, 171);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 150);
@@ -78,6 +81,7 @@ namespace WindowsFormsApp1
             // 
             // button3
             // 
+            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button3.Location = new System.Drawing.Point(805, 171);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 150);
@@ -88,6 +92,7 @@ namespace WindowsFormsApp1
             // 
             // button4
             // 
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button4.Location = new System.Drawing.Point(545, 345);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(100, 150);
@@ -98,6 +103,7 @@ namespace WindowsFormsApp1
             // 
             // button5
             // 
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button5.Location = new System.Drawing.Point(673, 345);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(100, 150);
@@ -108,6 +114,7 @@ namespace WindowsFormsApp1
             // 
             // button6
             // 
+            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.button6.Location = new System.Drawing.Point(805, 345);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(100, 150);
@@ -116,58 +123,17 @@ namespace WindowsFormsApp1
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
-            // breastplateButton
+            // health
             // 
-            this.breastplateButton.Location = new System.Drawing.Point(197, 253);
-            this.breastplateButton.Name = "breastplateButton";
-            this.breastplateButton.Size = new System.Drawing.Size(100, 150);
-            this.breastplateButton.TabIndex = 7;
-            this.breastplateButton.Text = "breastplateButton";
-            this.breastplateButton.UseVisualStyleBackColor = true;
-            this.breastplateButton.Click += new System.EventHandler(this.BreastplateButton_Click);
-            // 
-            // helmetButton
-            // 
-            this.helmetButton.Location = new System.Drawing.Point(197, 73);
-            this.helmetButton.Name = "helmetButton";
-            this.helmetButton.Size = new System.Drawing.Size(100, 150);
-            this.helmetButton.TabIndex = 8;
-            this.helmetButton.Text = "helmetButton";
-            this.helmetButton.UseVisualStyleBackColor = true;
-            this.helmetButton.Click += new System.EventHandler(this.HelmetButton_Click);
-            // 
-            // leftHandButton
-            // 
-            this.leftHandButton.Location = new System.Drawing.Point(329, 171);
-            this.leftHandButton.Name = "leftHandButton";
-            this.leftHandButton.Size = new System.Drawing.Size(100, 150);
-            this.leftHandButton.TabIndex = 9;
-            this.leftHandButton.Text = "leftHandButton";
-            this.leftHandButton.UseVisualStyleBackColor = true;
-            this.leftHandButton.Click += new System.EventHandler(this.LeftHandButton_Click);
-            // 
-            // rightHandButton
-            // 
-            this.rightHandButton.Location = new System.Drawing.Point(329, 346);
-            this.rightHandButton.Name = "rightHandButton";
-            this.rightHandButton.Size = new System.Drawing.Size(100, 150);
-            this.rightHandButton.TabIndex = 10;
-            this.rightHandButton.Text = "rightHandButton";
-            this.rightHandButton.UseVisualStyleBackColor = true;
-            this.rightHandButton.Click += new System.EventHandler(this.RightHandButton_Click);
-            // 
-            // backpackButton
-            // 
-            this.backpackButton.Location = new System.Drawing.Point(70, 253);
-            this.backpackButton.Name = "backpackButton";
-            this.backpackButton.Size = new System.Drawing.Size(100, 150);
-            this.backpackButton.TabIndex = 12;
-            this.backpackButton.Text = "backpackButton";
-            this.backpackButton.UseVisualStyleBackColor = true;
-            this.backpackButton.Click += new System.EventHandler(this.BbackpackButton_Click);
+            this.health.Location = new System.Drawing.Point(22, 12);
+            this.health.Name = "health";
+            this.health.Size = new System.Drawing.Size(104, 20);
+            this.health.TabIndex = 15;
             // 
             // bootsButton
             // 
+            this.bootsButton.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.BootsEmpty;
+            this.bootsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.bootsButton.Location = new System.Drawing.Point(197, 430);
             this.bootsButton.Name = "bootsButton";
             this.bootsButton.Size = new System.Drawing.Size(100, 150);
@@ -176,17 +142,71 @@ namespace WindowsFormsApp1
             this.bootsButton.UseVisualStyleBackColor = true;
             this.bootsButton.Click += new System.EventHandler(this.BootsButton_Click);
             // 
-            // health
+            // backpackButton
             // 
-            this.health.Location = new System.Drawing.Point(22, 12);
-            this.health.Name = "health";
-            this.health.Size = new System.Drawing.Size(104, 20);
-            this.health.TabIndex = 15;
+            this.backpackButton.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.Backpack__1_;
+            this.backpackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.backpackButton.Location = new System.Drawing.Point(70, 253);
+            this.backpackButton.Name = "backpackButton";
+            this.backpackButton.Size = new System.Drawing.Size(100, 150);
+            this.backpackButton.TabIndex = 12;
+            this.backpackButton.Text = "backpackButton";
+            this.backpackButton.UseVisualStyleBackColor = true;
+            this.backpackButton.Click += new System.EventHandler(this.BbackpackButton_Click);
+            // 
+            // rightHandButton
+            // 
+            this.rightHandButton.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.RightHand;
+            this.rightHandButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.rightHandButton.Location = new System.Drawing.Point(329, 346);
+            this.rightHandButton.Name = "rightHandButton";
+            this.rightHandButton.Size = new System.Drawing.Size(100, 150);
+            this.rightHandButton.TabIndex = 10;
+            this.rightHandButton.Text = "rightHandButton";
+            this.rightHandButton.UseVisualStyleBackColor = true;
+            this.rightHandButton.Click += new System.EventHandler(this.RightHandButton_Click);
+            // 
+            // leftHandButton
+            // 
+            this.leftHandButton.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.LeftHand;
+            this.leftHandButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.leftHandButton.Location = new System.Drawing.Point(329, 171);
+            this.leftHandButton.Name = "leftHandButton";
+            this.leftHandButton.Size = new System.Drawing.Size(100, 150);
+            this.leftHandButton.TabIndex = 9;
+            this.leftHandButton.Text = "leftHandButton";
+            this.leftHandButton.UseVisualStyleBackColor = true;
+            this.leftHandButton.Click += new System.EventHandler(this.LeftHandButton_Click);
+            // 
+            // helmetButton
+            // 
+            this.helmetButton.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.HelmetEmpty;
+            this.helmetButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.helmetButton.Location = new System.Drawing.Point(197, 73);
+            this.helmetButton.Name = "helmetButton";
+            this.helmetButton.Size = new System.Drawing.Size(100, 150);
+            this.helmetButton.TabIndex = 8;
+            this.helmetButton.Text = "helmetButton";
+            this.helmetButton.UseVisualStyleBackColor = true;
+            this.helmetButton.Click += new System.EventHandler(this.HelmetButton_Click);
+            // 
+            // breastplateButton
+            // 
+            this.breastplateButton.BackgroundImage = global::WindowsFormsApp1.Properties.Resources.BreastplateEmty;
+            this.breastplateButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.breastplateButton.Location = new System.Drawing.Point(197, 253);
+            this.breastplateButton.Name = "breastplateButton";
+            this.breastplateButton.Size = new System.Drawing.Size(100, 150);
+            this.breastplateButton.TabIndex = 7;
+            this.breastplateButton.Text = "breastplateButton";
+            this.breastplateButton.UseVisualStyleBackColor = true;
+            this.breastplateButton.Click += new System.EventHandler(this.BreastplateButton_Click);
             // 
             // GameFieldForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(984, 661);
             this.Controls.Add(this.health);
             this.Controls.Add(this.bootsButton);
